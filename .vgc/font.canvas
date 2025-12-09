@@ -1,0 +1,775 @@
+{
+  "vv": {
+    "name": "Ghostty Font Subsystem",
+    "version": "1.0.0",
+    "edgeTypes": {
+      "uses": {
+        "label": "Uses",
+        "style": "solid"
+      },
+      "implements": {
+        "label": "Implements",
+        "style": "dashed"
+      },
+      "dataflow": {
+        "label": "Data Flow",
+        "style": "solid",
+        "arrow": true
+      },
+      "contains": {
+        "label": "Contains",
+        "style": "solid",
+        "arrow": true
+      },
+      "caches": {
+        "label": "Caches",
+        "style": "dotted",
+        "arrow": true
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": "text_input",
+      "type": "text",
+      "x": 430,
+      "y": 65,
+      "width": 140,
+      "height": 50,
+      "text": "Text/Codepoints",
+      "vv": {
+        "nodeType": "input",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "sharedgridset",
+      "type": "text",
+      "x": 530,
+      "y": 225,
+      "width": 140,
+      "height": 50,
+      "text": "SharedGridSet",
+      "vv": {
+        "nodeType": "registry",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/SharedGridSet.zig"
+        ]
+      }
+    },
+    {
+      "id": "sharedgrid",
+      "type": "text",
+      "x": 430,
+      "y": 380,
+      "width": 140,
+      "height": 60,
+      "text": "SharedGrid",
+      "vv": {
+        "nodeType": "core",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/SharedGrid.zig"
+        ]
+      }
+    },
+    {
+      "id": "codepoint_cache",
+      "type": "text",
+      "x": 985,
+      "y": 545,
+      "width": 130,
+      "height": 50,
+      "text": "Codepoint Cache",
+      "vv": {
+        "nodeType": "cache",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "glyph_cache",
+      "type": "text",
+      "x": 785,
+      "y": 545,
+      "width": 130,
+      "height": 50,
+      "text": "Glyph Cache",
+      "vv": {
+        "nodeType": "cache",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "resolver",
+      "type": "text",
+      "x": 480,
+      "y": 545,
+      "width": 140,
+      "height": 50,
+      "text": "CodepointResolver",
+      "vv": {
+        "nodeType": "core",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/CodepointResolver.zig"
+        ]
+      }
+    },
+    {
+      "id": "codepoint_map",
+      "type": "text",
+      "x": 535,
+      "y": 705,
+      "width": 130,
+      "height": 50,
+      "text": "CodepointMap",
+      "vv": {
+        "nodeType": "config",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/CodepointMap.zig"
+        ]
+      }
+    },
+    {
+      "id": "collection",
+      "type": "text",
+      "x": 330,
+      "y": 700,
+      "width": 140,
+      "height": 60,
+      "text": "Collection",
+      "vv": {
+        "nodeType": "core",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/Collection.zig"
+        ]
+      }
+    },
+    {
+      "id": "face",
+      "type": "text",
+      "x": 1040,
+      "y": 865,
+      "width": 120,
+      "height": 50,
+      "text": "Face",
+      "vv": {
+        "nodeType": "abstraction",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/face.zig"
+        ]
+      }
+    },
+    {
+      "id": "deferred_face",
+      "type": "text",
+      "x": 835,
+      "y": 865,
+      "width": 130,
+      "height": 50,
+      "text": "DeferredFace",
+      "vv": {
+        "nodeType": "lazy",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/DeferredFace.zig"
+        ]
+      }
+    },
+    {
+      "id": "freetype_face",
+      "type": "text",
+      "x": 745,
+      "y": 705,
+      "width": 110,
+      "height": 50,
+      "text": "FreeType",
+      "vv": {
+        "nodeType": "backend",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/face/freetype.zig"
+        ]
+      }
+    },
+    {
+      "id": "coretext_face",
+      "type": "text",
+      "x": 945,
+      "y": 705,
+      "width": 110,
+      "height": 50,
+      "text": "CoreText",
+      "vv": {
+        "nodeType": "backend",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/face/coretext.zig"
+        ]
+      }
+    },
+    {
+      "id": "webcanvas_face",
+      "type": "text",
+      "x": 1145,
+      "y": 705,
+      "width": 110,
+      "height": 50,
+      "text": "WebCanvas",
+      "vv": {
+        "nodeType": "backend",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/face/web_canvas.zig"
+        ]
+      }
+    },
+    {
+      "id": "discovery",
+      "type": "text",
+      "x": 435,
+      "y": 1025,
+      "width": 130,
+      "height": 50,
+      "text": "Discovery",
+      "vv": {
+        "nodeType": "discovery",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/discovery.zig"
+        ]
+      }
+    },
+    {
+      "id": "library",
+      "type": "text",
+      "x": 595,
+      "y": 1185,
+      "width": 110,
+      "height": 50,
+      "text": "Library",
+      "vv": {
+        "nodeType": "state",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/library.zig"
+        ]
+      }
+    },
+    {
+      "id": "embedded",
+      "type": "text",
+      "x": 645,
+      "y": 865,
+      "width": 110,
+      "height": 50,
+      "text": "Embedded Fonts",
+      "vv": {
+        "nodeType": "resource",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/embedded.zig"
+        ]
+      }
+    },
+    {
+      "id": "metrics",
+      "type": "text",
+      "x": 440,
+      "y": 865,
+      "width": 120,
+      "height": 50,
+      "text": "Metrics",
+      "vv": {
+        "nodeType": "data",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/Metrics.zig"
+        ]
+      }
+    },
+    {
+      "id": "glyph",
+      "type": "text",
+      "x": 650,
+      "y": 1025,
+      "width": 100,
+      "height": 50,
+      "text": "Glyph",
+      "vv": {
+        "nodeType": "data",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/Glyph.zig"
+        ]
+      }
+    },
+    {
+      "id": "atlas_grayscale",
+      "type": "text",
+      "x": 785,
+      "y": 1185,
+      "width": 130,
+      "height": 50,
+      "text": "Atlas (Grayscale)",
+      "vv": {
+        "nodeType": "storage",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/Atlas.zig"
+        ]
+      }
+    },
+    {
+      "id": "atlas_color",
+      "type": "text",
+      "x": 285,
+      "y": 545,
+      "width": 130,
+      "height": 50,
+      "text": "Atlas (Color)",
+      "vv": {
+        "nodeType": "storage",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/Atlas.zig"
+        ]
+      }
+    },
+    {
+      "id": "shaper",
+      "type": "text",
+      "x": 740,
+      "y": 225,
+      "width": 120,
+      "height": 50,
+      "text": "Shaper",
+      "vv": {
+        "nodeType": "shaping",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/shape.zig"
+        ]
+      }
+    },
+    {
+      "id": "shaper_cache",
+      "type": "text",
+      "x": 840,
+      "y": 385,
+      "width": 120,
+      "height": 50,
+      "text": "Shaper Cache",
+      "vv": {
+        "nodeType": "cache",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/shaper/Cache.zig"
+        ]
+      }
+    },
+    {
+      "id": "textrun",
+      "type": "text",
+      "x": 640,
+      "y": 385,
+      "width": 120,
+      "height": 50,
+      "text": "TextRun",
+      "vv": {
+        "nodeType": "data",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/shaper/run.zig"
+        ]
+      }
+    },
+    {
+      "id": "harfbuzz",
+      "type": "text",
+      "x": 650,
+      "y": 65,
+      "width": 100,
+      "height": 50,
+      "text": "HarfBuzz",
+      "vv": {
+        "nodeType": "backend",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/shaper/harfbuzz.zig"
+        ]
+      }
+    },
+    {
+      "id": "coretext_shaper",
+      "type": "text",
+      "x": 850,
+      "y": 65,
+      "width": 100,
+      "height": 50,
+      "text": "CoreText",
+      "vv": {
+        "nodeType": "backend",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/shaper/coretext.zig"
+        ]
+      }
+    },
+    {
+      "id": "sprite",
+      "type": "text",
+      "x": 135,
+      "y": 705,
+      "width": 130,
+      "height": 50,
+      "text": "Sprite Font",
+      "vv": {
+        "nodeType": "special",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/sprite.zig"
+        ]
+      }
+    },
+    {
+      "id": "sprite_face",
+      "type": "text",
+      "x": 235,
+      "y": 865,
+      "width": 130,
+      "height": 50,
+      "text": "Sprite Face",
+      "vv": {
+        "nodeType": "special",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/sprite/Face.zig"
+        ]
+      }
+    },
+    {
+      "id": "sprite_draw",
+      "type": "text",
+      "x": 235,
+      "y": 1025,
+      "width": 130,
+      "height": 50,
+      "text": "Draw Functions",
+      "vv": {
+        "nodeType": "drawing",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/sprite/draw/box.zig"
+        ]
+      }
+    },
+    {
+      "id": "nerd_attrs",
+      "type": "text",
+      "x": 1035,
+      "y": 1025,
+      "width": 130,
+      "height": 50,
+      "text": "Nerd Font Attrs",
+      "vv": {
+        "nodeType": "config",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/nerd_font_attributes.zig"
+        ]
+      }
+    },
+    {
+      "id": "opentype",
+      "type": "text",
+      "x": 845,
+      "y": 1025,
+      "width": 110,
+      "height": 50,
+      "text": "OpenType Parser",
+      "vv": {
+        "nodeType": "parser",
+        "shape": "rectangle",
+        "sources": [
+          "src/font/opentype.zig"
+        ]
+      }
+    },
+    {
+      "id": "gpu_texture",
+      "type": "text",
+      "x": 660,
+      "y": 1345,
+      "width": 80,
+      "height": 50,
+      "text": "GPU Texture",
+      "vv": {
+        "nodeType": "output",
+        "shape": "rectangle"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "text_input",
+      "toNode": "sharedgridset",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e2",
+      "fromNode": "sharedgridset",
+      "toNode": "sharedgrid",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e3",
+      "fromNode": "sharedgrid",
+      "toNode": "codepoint_cache",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e4",
+      "fromNode": "sharedgrid",
+      "toNode": "glyph_cache",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e5",
+      "fromNode": "sharedgrid",
+      "toNode": "resolver",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e6",
+      "fromNode": "resolver",
+      "toNode": "codepoint_map",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e7",
+      "fromNode": "resolver",
+      "toNode": "collection",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e8",
+      "fromNode": "resolver",
+      "toNode": "sprite",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e9",
+      "fromNode": "collection",
+      "toNode": "face",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e10",
+      "fromNode": "collection",
+      "toNode": "deferred_face",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e11",
+      "fromNode": "freetype_face",
+      "toNode": "face",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e12",
+      "fromNode": "coretext_face",
+      "toNode": "face",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e13",
+      "fromNode": "webcanvas_face",
+      "toNode": "face",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e14",
+      "fromNode": "deferred_face",
+      "toNode": "discovery",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e15",
+      "fromNode": "discovery",
+      "toNode": "library",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e16",
+      "fromNode": "collection",
+      "toNode": "embedded",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e17",
+      "fromNode": "collection",
+      "toNode": "metrics",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e18",
+      "fromNode": "face",
+      "toNode": "glyph",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e19",
+      "fromNode": "sharedgrid",
+      "toNode": "atlas_grayscale",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e20",
+      "fromNode": "sharedgrid",
+      "toNode": "atlas_color",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e21",
+      "fromNode": "glyph",
+      "toNode": "atlas_grayscale",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e22",
+      "fromNode": "text_input",
+      "toNode": "shaper",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e23",
+      "fromNode": "shaper",
+      "toNode": "shaper_cache",
+      "vv": {
+        "edgeType": "caches"
+      }
+    },
+    {
+      "id": "e24",
+      "fromNode": "shaper",
+      "toNode": "textrun",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e25",
+      "fromNode": "harfbuzz",
+      "toNode": "shaper",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e26",
+      "fromNode": "coretext_shaper",
+      "toNode": "shaper",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e27",
+      "fromNode": "sprite",
+      "toNode": "sprite_face",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e28",
+      "fromNode": "sprite_face",
+      "toNode": "sprite_draw",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e29",
+      "fromNode": "face",
+      "toNode": "nerd_attrs",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e30",
+      "fromNode": "face",
+      "toNode": "opentype",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e31",
+      "fromNode": "atlas_grayscale",
+      "toNode": "gpu_texture",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e32",
+      "fromNode": "atlas_color",
+      "toNode": "gpu_texture",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+version: "1.0.0"
+name: "Ghostty Component Library"
+
+nodeComponents:
+  # Core Application Components
+  entrypoint:
+    label: "Entry Point"
+    description: "Application entry point and initialization"
+    color: "#4CAF50"
+
+  app:
+    label: "Application"
+    description: "Main application instance managing surfaces and lifecycle"
+    color: "#2196F3"
+
+  surface:
+    label: "Surface"
+    description: "Single terminal surface (window/tab/split)"
+    color: "#03A9F4"
+
+  # Platform Abstraction
+  apprt:
+    label: "App Runtime"
+    description: "Platform abstraction layer"
+    color: "#9C27B0"
+
+  gtk:
+    label: "GTK Runtime"
+    description: "Linux GTK4 implementation"
+    color: "#673AB7"
+
+  macos:
+    label: "macOS Runtime"
+    description: "macOS Swift/Metal implementation"
+    color: "#3F51B5"
+
+  browser:
+    label: "Browser Runtime"
+    description: "WASM browser implementation"
+    color: "#7C4DFF"
+
+  # Terminal Emulation
+  terminal:
+    label: "Terminal"
+    description: "VT terminal emulation state machine"
+    color: "#FF5722"
+
+  parser:
+    label: "Parser"
+    description: "VT sequence parser"
+    color: "#FF7043"
+
+  screen:
+    label: "Screen"
+    description: "Screen/buffer management"
+    color: "#FF8A65"
+
+  # Rendering
+  renderer:
+    label: "Renderer"
+    description: "Platform-agnostic rendering system"
+    color: "#E91E63"
+
+  metal:
+    label: "Metal Backend"
+    description: "Apple Metal renderer"
+    color: "#F06292"
+
+  opengl:
+    label: "OpenGL Backend"
+    description: "OpenGL/WebGL renderer"
+    color: "#F48FB1"
+
+  # Font System
+  font:
+    label: "Font System"
+    description: "Font loading, shaping, and atlas management"
+    color: "#00BCD4"
+
+  atlas:
+    label: "Glyph Atlas"
+    description: "GPU texture atlas for glyphs"
+    color: "#26C6DA"
+
+  shaper:
+    label: "Text Shaper"
+    description: "HarfBuzz text shaping"
+    color: "#4DD0E1"
+
+  # Configuration
+  config:
+    label: "Configuration"
+    description: "Configuration management system"
+    color: "#FFC107"
+
+  theme:
+    label: "Theme"
+    description: "Color theme handling"
+    color: "#FFD54F"
+
+  # Input System
+  input:
+    label: "Input System"
+    description: "Keyboard and mouse input handling"
+    color: "#8BC34A"
+
+  binding:
+    label: "Key Bindings"
+    description: "Keybinding management"
+    color: "#AED581"
+
+  # CLI
+  cli:
+    label: "CLI"
+    description: "Command line interface"
+    color: "#607D8B"
+
+  # Utilities
+  os:
+    label: "OS Utils"
+    description: "Cross-platform OS utilities"
+    color: "#795548"
+
+  datastruct:
+    label: "Data Structures"
+    description: "Core data structures (queues, trees, etc.)"
+    color: "#9E9E9E"
+
+  # External Dependencies
+  external:
+    label: "External Dep"
+    description: "External dependency/library"
+    color: "#455A64"
+
+edgeComponents:
+  uses:
+    label: "Uses"
+    description: "Component uses/depends on another"
+    style: "solid"
+
+  implements:
+    label: "Implements"
+    description: "Implements an interface/abstraction"
+    style: "dashed"
+
+  dataflow:
+    label: "Data Flow"
+    description: "Data flows between components"
+    style: "solid"
+    arrow: true
+
+  controls:
+    label: "Controls"
+    description: "Component controls/manages another"
+    style: "solid"
+    arrow: true

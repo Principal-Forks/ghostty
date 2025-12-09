@@ -1,0 +1,865 @@
+{
+  "vv": {
+    "name": "Ghostty Renderer Subsystem",
+    "version": "1.0.0",
+    "edgeTypes": {
+      "uses": {
+        "label": "Uses",
+        "style": "solid"
+      },
+      "implements": {
+        "label": "Implements",
+        "style": "dashed"
+      },
+      "dataflow": {
+        "label": "Data Flow",
+        "style": "solid",
+        "arrow": true
+      },
+      "contains": {
+        "label": "Contains",
+        "style": "solid",
+        "arrow": true
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": "terminal_state",
+      "type": "text",
+      "x": 400,
+      "y": 0,
+      "width": 140,
+      "height": 50,
+      "text": "Terminal State",
+      "vv": {
+        "nodeType": "input",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "state",
+      "type": "text",
+      "x": 400,
+      "y": 80,
+      "width": 140,
+      "height": 50,
+      "text": "Render State",
+      "vv": {
+        "nodeType": "state",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/State.zig"
+        ]
+      }
+    },
+    {
+      "id": "thread",
+      "type": "text",
+      "x": 189,
+      "y": 27,
+      "width": 140,
+      "height": 50,
+      "text": "Render Thread",
+      "vv": {
+        "nodeType": "thread",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/Thread.zig"
+        ]
+      }
+    },
+    {
+      "id": "message",
+      "type": "text",
+      "x": 200,
+      "y": 160,
+      "width": 140,
+      "height": 50,
+      "text": "Message Queue",
+      "vv": {
+        "nodeType": "ipc",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/message.zig"
+        ]
+      }
+    },
+    {
+      "id": "generic",
+      "type": "text",
+      "x": 400,
+      "y": 180,
+      "width": 140,
+      "height": 60,
+      "text": "Generic Renderer",
+      "vv": {
+        "nodeType": "core",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/generic.zig"
+        ]
+      }
+    },
+    {
+      "id": "size",
+      "type": "text",
+      "x": 901,
+      "y": 289,
+      "width": 120,
+      "height": 50,
+      "text": "Size/Coords",
+      "vv": {
+        "nodeType": "util",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/size.zig"
+        ]
+      }
+    },
+    {
+      "id": "options",
+      "type": "text",
+      "x": 371,
+      "y": 287,
+      "width": 120,
+      "height": 50,
+      "text": "Options",
+      "vv": {
+        "nodeType": "config",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/Options.zig"
+        ]
+      }
+    },
+    {
+      "id": "cell",
+      "type": "text",
+      "x": 231,
+      "y": 284,
+      "width": 120,
+      "height": 50,
+      "text": "Cell Contents",
+      "vv": {
+        "nodeType": "data",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/cell.zig"
+        ]
+      }
+    },
+    {
+      "id": "cursor",
+      "type": "text",
+      "x": 96,
+      "y": 283,
+      "width": 120,
+      "height": 50,
+      "text": "Cursor",
+      "vv": {
+        "nodeType": "data",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/cursor.zig"
+        ]
+      }
+    },
+    {
+      "id": "image",
+      "type": "text",
+      "x": 617,
+      "y": 286,
+      "width": 120,
+      "height": 50,
+      "text": "Image",
+      "vv": {
+        "nodeType": "data",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/image.zig"
+        ]
+      }
+    },
+    {
+      "id": "link",
+      "type": "text",
+      "x": 759,
+      "y": 288,
+      "width": 120,
+      "height": 50,
+      "text": "Link Detection",
+      "vv": {
+        "nodeType": "feature",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/link.zig"
+        ]
+      }
+    },
+    {
+      "id": "backend",
+      "type": "text",
+      "x": 400,
+      "y": 380,
+      "width": 140,
+      "height": 50,
+      "text": "Backend Enum",
+      "vv": {
+        "nodeType": "abstraction",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/backend.zig"
+        ]
+      }
+    },
+    {
+      "id": "metal",
+      "type": "text",
+      "x": -62,
+      "y": 281,
+      "width": 140,
+      "height": 60,
+      "text": "Metal Backend",
+      "vv": {
+        "nodeType": "backend",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/Metal.zig"
+        ]
+      }
+    },
+    {
+      "id": "opengl",
+      "type": "text",
+      "x": 400,
+      "y": 480,
+      "width": 140,
+      "height": 60,
+      "text": "OpenGL Backend",
+      "vv": {
+        "nodeType": "backend",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/OpenGL.zig"
+        ]
+      }
+    },
+    {
+      "id": "webgl",
+      "type": "text",
+      "x": 1041,
+      "y": 285,
+      "width": 140,
+      "height": 60,
+      "text": "WebGL Backend",
+      "vv": {
+        "nodeType": "backend",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/WebGL.zig"
+        ]
+      }
+    },
+    {
+      "id": "metal_target",
+      "type": "text",
+      "x": -52,
+      "y": 519,
+      "width": 100,
+      "height": 45,
+      "text": "Target",
+      "vv": {
+        "nodeType": "component",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/metal/Target.zig"
+        ]
+      }
+    },
+    {
+      "id": "metal_frame",
+      "type": "text",
+      "x": -351,
+      "y": 519,
+      "width": 100,
+      "height": 45,
+      "text": "Frame",
+      "vv": {
+        "nodeType": "component",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/metal/Frame.zig"
+        ]
+      }
+    },
+    {
+      "id": "metal_pass",
+      "type": "text",
+      "x": 90,
+      "y": 517,
+      "width": 100,
+      "height": 45,
+      "text": "RenderPass",
+      "vv": {
+        "nodeType": "component",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/metal/RenderPass.zig"
+        ]
+      }
+    },
+    {
+      "id": "metal_pipeline",
+      "type": "text",
+      "x": -213,
+      "y": 519,
+      "width": 100,
+      "height": 45,
+      "text": "Pipeline",
+      "vv": {
+        "nodeType": "component",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/metal/Pipeline.zig"
+        ]
+      }
+    },
+    {
+      "id": "metal_buffer",
+      "type": "text",
+      "x": 221,
+      "y": 516,
+      "width": 100,
+      "height": 45,
+      "text": "Buffer",
+      "vv": {
+        "nodeType": "component",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/metal/buffer.zig"
+        ]
+      }
+    },
+    {
+      "id": "metal_texture",
+      "type": "text",
+      "x": -496,
+      "y": 518,
+      "width": 100,
+      "height": 45,
+      "text": "Texture",
+      "vv": {
+        "nodeType": "component",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/metal/Texture.zig"
+        ]
+      }
+    },
+    {
+      "id": "opengl_target",
+      "type": "text",
+      "x": 181,
+      "y": 610,
+      "width": 100,
+      "height": 45,
+      "text": "Target",
+      "vv": {
+        "nodeType": "component",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/opengl/Target.zig"
+        ]
+      }
+    },
+    {
+      "id": "opengl_frame",
+      "type": "text",
+      "x": 183,
+      "y": 744,
+      "width": 100,
+      "height": 45,
+      "text": "Frame",
+      "vv": {
+        "nodeType": "component",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/opengl/Frame.zig"
+        ]
+      }
+    },
+    {
+      "id": "opengl_pass",
+      "type": "text",
+      "x": 600,
+      "y": 580,
+      "width": 100,
+      "height": 45,
+      "text": "RenderPass",
+      "vv": {
+        "nodeType": "component",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/opengl/RenderPass.zig"
+        ]
+      }
+    },
+    {
+      "id": "opengl_pipeline",
+      "type": "text",
+      "x": 325,
+      "y": 746,
+      "width": 100,
+      "height": 45,
+      "text": "Pipeline",
+      "vv": {
+        "nodeType": "component",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/opengl/Pipeline.zig"
+        ]
+      }
+    },
+    {
+      "id": "opengl_buffer",
+      "type": "text",
+      "x": 455,
+      "y": 678,
+      "width": 100,
+      "height": 45,
+      "text": "Buffer",
+      "vv": {
+        "nodeType": "component",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/opengl/buffer.zig"
+        ]
+      }
+    },
+    {
+      "id": "opengl_texture",
+      "type": "text",
+      "x": 587,
+      "y": 730,
+      "width": 100,
+      "height": 45,
+      "text": "Texture",
+      "vv": {
+        "nodeType": "component",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/opengl/Texture.zig"
+        ]
+      }
+    },
+    {
+      "id": "shaders_metal",
+      "type": "text",
+      "x": -206,
+      "y": 632,
+      "width": 120,
+      "height": 50,
+      "text": "Metal Shaders",
+      "vv": {
+        "nodeType": "shader",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/shaders/shaders.metal"
+        ]
+      }
+    },
+    {
+      "id": "shaders_glsl",
+      "type": "text",
+      "x": 337,
+      "y": 838,
+      "width": 120,
+      "height": 50,
+      "text": "GLSL Shaders",
+      "vv": {
+        "nodeType": "shader",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/shaders/glsl/cell_text.f.glsl"
+        ]
+      }
+    },
+    {
+      "id": "shadertoy",
+      "type": "text",
+      "x": 1211,
+      "y": 287,
+      "width": 130,
+      "height": 50,
+      "text": "Custom Shaders",
+      "vv": {
+        "nodeType": "feature",
+        "shape": "rectangle",
+        "sources": [
+          "src/renderer/shadertoy.zig"
+        ]
+      }
+    },
+    {
+      "id": "pass_bg",
+      "type": "text",
+      "x": 643,
+      "y": 420,
+      "width": 110,
+      "height": 40,
+      "text": "bg_color pass",
+      "vv": {
+        "nodeType": "pass",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "pass_cellbg",
+      "type": "text",
+      "x": 763,
+      "y": 495,
+      "width": 110,
+      "height": 40,
+      "text": "cell_bg pass",
+      "vv": {
+        "nodeType": "pass",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "pass_text",
+      "type": "text",
+      "x": 766,
+      "y": 575,
+      "width": 110,
+      "height": 40,
+      "text": "cell_text pass",
+      "vv": {
+        "nodeType": "pass",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "pass_image",
+      "type": "text",
+      "x": 769,
+      "y": 662,
+      "width": 110,
+      "height": 40,
+      "text": "image pass",
+      "vv": {
+        "nodeType": "pass",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "pass_custom",
+      "type": "text",
+      "x": 769,
+      "y": 740,
+      "width": 110,
+      "height": 40,
+      "text": "custom pass",
+      "vv": {
+        "nodeType": "pass",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "gpu_output",
+      "type": "text",
+      "x": 760,
+      "y": 832,
+      "width": 140,
+      "height": 50,
+      "text": "GPU Output",
+      "vv": {
+        "nodeType": "output",
+        "shape": "rectangle"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "terminal_state",
+      "toNode": "state",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e2",
+      "fromNode": "state",
+      "toNode": "generic",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e3",
+      "fromNode": "thread",
+      "toNode": "generic",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e4",
+      "fromNode": "thread",
+      "toNode": "message",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e5",
+      "fromNode": "generic",
+      "toNode": "size",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e6",
+      "fromNode": "generic",
+      "toNode": "options",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e7",
+      "fromNode": "generic",
+      "toNode": "cell",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e8",
+      "fromNode": "generic",
+      "toNode": "cursor",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e9",
+      "fromNode": "generic",
+      "toNode": "image",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e10",
+      "fromNode": "generic",
+      "toNode": "link",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e11",
+      "fromNode": "generic",
+      "toNode": "backend",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e12",
+      "fromNode": "metal",
+      "toNode": "backend",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e13",
+      "fromNode": "opengl",
+      "toNode": "backend",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e14",
+      "fromNode": "webgl",
+      "toNode": "backend",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e15",
+      "fromNode": "metal",
+      "toNode": "metal_target",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e16",
+      "fromNode": "metal",
+      "toNode": "metal_frame",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e17",
+      "fromNode": "metal",
+      "toNode": "metal_pass",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e18",
+      "fromNode": "metal",
+      "toNode": "metal_pipeline",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e19",
+      "fromNode": "metal",
+      "toNode": "metal_buffer",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e20",
+      "fromNode": "metal",
+      "toNode": "metal_texture",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e21",
+      "fromNode": "opengl",
+      "toNode": "opengl_target",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e22",
+      "fromNode": "opengl",
+      "toNode": "opengl_frame",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e23",
+      "fromNode": "opengl",
+      "toNode": "opengl_pass",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e24",
+      "fromNode": "opengl",
+      "toNode": "opengl_pipeline",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e25",
+      "fromNode": "opengl",
+      "toNode": "opengl_buffer",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e26",
+      "fromNode": "opengl",
+      "toNode": "opengl_texture",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e27",
+      "fromNode": "metal_pipeline",
+      "toNode": "shaders_metal",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e28",
+      "fromNode": "opengl_pipeline",
+      "toNode": "shaders_glsl",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e29",
+      "fromNode": "generic",
+      "toNode": "shadertoy",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e30",
+      "fromNode": "generic",
+      "toNode": "pass_bg",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e31",
+      "fromNode": "pass_bg",
+      "toNode": "pass_cellbg",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e32",
+      "fromNode": "pass_cellbg",
+      "toNode": "pass_text",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e33",
+      "fromNode": "pass_text",
+      "toNode": "pass_image",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e34",
+      "fromNode": "pass_image",
+      "toNode": "pass_custom",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e35",
+      "fromNode": "pass_custom",
+      "toNode": "gpu_output",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    }
+  ]
+}

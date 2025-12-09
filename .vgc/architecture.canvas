@@ -1,0 +1,581 @@
+{
+  "vv": {
+    "name": "Ghostty Architecture",
+    "version": "1.0.0",
+    "library": "./library.yaml",
+    "edgeTypes": {
+      "uses": {
+        "label": "Uses",
+        "style": "solid"
+      },
+      "implements": {
+        "label": "Implements",
+        "style": "dashed"
+      },
+      "controls": {
+        "label": "Controls",
+        "style": "solid",
+        "arrow": true
+      },
+      "dataflow": {
+        "label": "Data Flow",
+        "style": "solid",
+        "arrow": true
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": "main",
+      "type": "text",
+      "x": 475,
+      "y": 60,
+      "width": 150,
+      "height": 60,
+      "text": "main_ghostty.zig",
+      "vv": {
+        "nodeType": "entrypoint",
+        "shape": "rectangle",
+        "sources": ["src/main_ghostty.zig"]
+      }
+    },
+    {
+      "id": "cli",
+      "type": "text",
+      "x": 90,
+      "y": 220,
+      "width": 120,
+      "height": 60,
+      "text": "CLI",
+      "vv": {
+        "nodeType": "cli",
+        "shape": "rectangle",
+        "sources": ["src/cli.zig"]
+      }
+    },
+    {
+      "id": "app",
+      "type": "text",
+      "x": 275,
+      "y": 220,
+      "width": 150,
+      "height": 60,
+      "text": "App.zig",
+      "vv": {
+        "nodeType": "app",
+        "shape": "rectangle",
+        "sources": ["src/App.zig"]
+      }
+    },
+    {
+      "id": "config",
+      "type": "text",
+      "x": 590,
+      "y": 380,
+      "width": 120,
+      "height": 60,
+      "text": "Config",
+      "vv": {
+        "nodeType": "config",
+        "shape": "rectangle",
+        "sources": ["src/config/Config.zig"]
+      }
+    },
+    {
+      "id": "theme",
+      "type": "text",
+      "x": 950,
+      "y": 540,
+      "width": 100,
+      "height": 60,
+      "text": "Themes",
+      "vv": {
+        "nodeType": "theme",
+        "shape": "rectangle",
+        "sources": ["src/config/theme.zig"]
+      }
+    },
+    {
+      "id": "apprt",
+      "type": "text",
+      "x": 780,
+      "y": 380,
+      "width": 140,
+      "height": 60,
+      "text": "App Runtime",
+      "vv": {
+        "nodeType": "apprt",
+        "shape": "rectangle",
+        "sources": ["src/apprt.zig"]
+      }
+    },
+    {
+      "id": "gtk",
+      "type": "text",
+      "x": 500,
+      "y": 220,
+      "width": 100,
+      "height": 60,
+      "text": "GTK4",
+      "vv": {
+        "nodeType": "gtk",
+        "shape": "rectangle",
+        "sources": ["src/apprt/gtk.zig"]
+      }
+    },
+    {
+      "id": "macos_rt",
+      "type": "text",
+      "x": 700,
+      "y": 220,
+      "width": 100,
+      "height": 60,
+      "text": "macOS",
+      "vv": {
+        "nodeType": "macos",
+        "shape": "rectangle",
+        "sources": ["macos/Sources/Ghostty/Ghostty.App.swift"]
+      }
+    },
+    {
+      "id": "browser_rt",
+      "type": "text",
+      "x": 900,
+      "y": 220,
+      "width": 100,
+      "height": 60,
+      "text": "Browser",
+      "vv": {
+        "nodeType": "browser",
+        "shape": "rectangle",
+        "sources": ["src/apprt/browser.zig"]
+      }
+    },
+    {
+      "id": "surface",
+      "type": "text",
+      "x": 375,
+      "y": 380,
+      "width": 150,
+      "height": 60,
+      "text": "Surface.zig",
+      "vv": {
+        "nodeType": "surface",
+        "shape": "rectangle",
+        "sources": ["src/Surface.zig"]
+      }
+    },
+    {
+      "id": "terminal",
+      "type": "text",
+      "x": 525,
+      "y": 540,
+      "width": 150,
+      "height": 60,
+      "text": "Terminal.zig",
+      "vv": {
+        "nodeType": "terminal",
+        "shape": "rectangle",
+        "sources": ["src/terminal/Terminal.zig"]
+      }
+    },
+    {
+      "id": "parser",
+      "type": "text",
+      "x": 590,
+      "y": 700,
+      "width": 120,
+      "height": 60,
+      "text": "Parser.zig",
+      "vv": {
+        "nodeType": "parser",
+        "shape": "rectangle",
+        "sources": ["src/terminal/Parser.zig"]
+      }
+    },
+    {
+      "id": "screen",
+      "type": "text",
+      "x": 390,
+      "y": 700,
+      "width": 120,
+      "height": 60,
+      "text": "Screen.zig",
+      "vv": {
+        "nodeType": "screen",
+        "shape": "rectangle",
+        "sources": ["src/terminal/Screen.zig"]
+      }
+    },
+    {
+      "id": "input",
+      "type": "text",
+      "x": 740,
+      "y": 540,
+      "width": 120,
+      "height": 60,
+      "text": "Input System",
+      "vv": {
+        "nodeType": "input",
+        "shape": "rectangle",
+        "sources": ["src/input.zig"]
+      }
+    },
+    {
+      "id": "binding",
+      "type": "text",
+      "x": 790,
+      "y": 700,
+      "width": 120,
+      "height": 60,
+      "text": "Binding.zig",
+      "vv": {
+        "nodeType": "binding",
+        "shape": "rectangle",
+        "sources": ["src/input/Binding.zig"]
+      }
+    },
+    {
+      "id": "renderer",
+      "type": "text",
+      "x": 180,
+      "y": 700,
+      "width": 140,
+      "height": 60,
+      "text": "Renderer",
+      "vv": {
+        "nodeType": "renderer",
+        "shape": "rectangle",
+        "sources": ["src/renderer.zig"]
+      }
+    },
+    {
+      "id": "metal",
+      "type": "text",
+      "x": 150,
+      "y": 540,
+      "width": 100,
+      "height": 60,
+      "text": "Metal",
+      "vv": {
+        "nodeType": "metal",
+        "shape": "rectangle",
+        "sources": ["src/renderer/Metal.zig"]
+      }
+    },
+    {
+      "id": "opengl",
+      "type": "text",
+      "x": 11,
+      "y": 540,
+      "width": 100,
+      "height": 60,
+      "text": "OpenGL",
+      "vv": {
+        "nodeType": "opengl",
+        "shape": "rectangle",
+        "sources": ["src/renderer/OpenGL.zig"]
+      }
+    },
+    {
+      "id": "font",
+      "type": "text",
+      "x": 390,
+      "y": 860,
+      "width": 120,
+      "height": 60,
+      "text": "Font System",
+      "vv": {
+        "nodeType": "font",
+        "shape": "rectangle",
+        "sources": ["src/font/main.zig"]
+      }
+    },
+    {
+      "id": "atlas",
+      "type": "text",
+      "x": 600,
+      "y": 1020,
+      "width": 100,
+      "height": 60,
+      "text": "Atlas",
+      "vv": {
+        "nodeType": "atlas",
+        "shape": "rectangle",
+        "sources": ["src/font/Atlas.zig"]
+      }
+    },
+    {
+      "id": "shaper",
+      "type": "text",
+      "x": 400,
+      "y": 1020,
+      "width": 100,
+      "height": 60,
+      "text": "Shaper",
+      "vv": {
+        "nodeType": "shaper",
+        "shape": "rectangle",
+        "sources": ["src/font/shaper.zig"]
+      }
+    },
+    {
+      "id": "os",
+      "type": "text",
+      "x": 190,
+      "y": 380,
+      "width": 120,
+      "height": 60,
+      "text": "OS Utils",
+      "vv": {
+        "nodeType": "os",
+        "shape": "rectangle",
+        "sources": ["src/os/main.zig"]
+      }
+    },
+    {
+      "id": "datastruct",
+      "type": "text",
+      "x": 580,
+      "y": 860,
+      "width": 140,
+      "height": 60,
+      "text": "Data Structures",
+      "vv": {
+        "nodeType": "datastruct",
+        "shape": "rectangle",
+        "sources": ["src/datastruct/main.zig"]
+      }
+    },
+    {
+      "id": "freetype",
+      "type": "text",
+      "x": 600,
+      "y": 1185,
+      "width": 100,
+      "height": 50,
+      "text": "FreeType",
+      "vv": {
+        "nodeType": "external",
+        "shape": "rectangle",
+        "sources": ["pkg/freetype/freetype.zig"]
+      }
+    },
+    {
+      "id": "harfbuzz",
+      "type": "text",
+      "x": 400,
+      "y": 1185,
+      "width": 100,
+      "height": 50,
+      "text": "HarfBuzz",
+      "vv": {
+        "nodeType": "external",
+        "shape": "rectangle",
+        "sources": ["pkg/harfbuzz/harfbuzz.zig"]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "main",
+      "toNode": "app",
+      "vv": {
+        "edgeType": "controls"
+      }
+    },
+    {
+      "id": "e2",
+      "fromNode": "main",
+      "toNode": "cli",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e3",
+      "fromNode": "app",
+      "toNode": "surface",
+      "vv": {
+        "edgeType": "controls"
+      }
+    },
+    {
+      "id": "e4",
+      "fromNode": "app",
+      "toNode": "apprt",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e5",
+      "fromNode": "app",
+      "toNode": "config",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e6",
+      "fromNode": "config",
+      "toNode": "theme",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e7",
+      "fromNode": "gtk",
+      "toNode": "apprt",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e8",
+      "fromNode": "macos_rt",
+      "toNode": "apprt",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e9",
+      "fromNode": "browser_rt",
+      "toNode": "apprt",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e10",
+      "fromNode": "surface",
+      "toNode": "terminal",
+      "vv": {
+        "edgeType": "controls"
+      }
+    },
+    {
+      "id": "e11",
+      "fromNode": "surface",
+      "toNode": "renderer",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e12",
+      "fromNode": "surface",
+      "toNode": "input",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e13",
+      "fromNode": "terminal",
+      "toNode": "parser",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e14",
+      "fromNode": "terminal",
+      "toNode": "screen",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e15",
+      "fromNode": "input",
+      "toNode": "binding",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e16",
+      "fromNode": "metal",
+      "toNode": "renderer",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e17",
+      "fromNode": "opengl",
+      "toNode": "renderer",
+      "vv": {
+        "edgeType": "implements"
+      }
+    },
+    {
+      "id": "e18",
+      "fromNode": "renderer",
+      "toNode": "font",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e19",
+      "fromNode": "font",
+      "toNode": "atlas",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e20",
+      "fromNode": "font",
+      "toNode": "shaper",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e21",
+      "fromNode": "atlas",
+      "toNode": "freetype",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e22",
+      "fromNode": "shaper",
+      "toNode": "harfbuzz",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e23",
+      "fromNode": "app",
+      "toNode": "os",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e24",
+      "fromNode": "screen",
+      "toNode": "datastruct",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e25",
+      "fromNode": "terminal",
+      "toNode": "renderer",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    }
+  ]
+}

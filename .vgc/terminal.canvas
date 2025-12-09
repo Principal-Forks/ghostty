@@ -1,0 +1,764 @@
+{
+  "vv": {
+    "name": "Ghostty Terminal Subsystem",
+    "version": "1.0.0",
+    "edgeTypes": {
+      "uses": {
+        "label": "Uses",
+        "style": "solid"
+      },
+      "contains": {
+        "label": "Contains",
+        "style": "solid",
+        "arrow": true
+      },
+      "dataflow": {
+        "label": "Data Flow",
+        "style": "solid",
+        "arrow": true
+      },
+      "produces": {
+        "label": "Produces",
+        "style": "dashed",
+        "arrow": true
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": "input",
+      "type": "text",
+      "x": 630,
+      "y": 65,
+      "width": 140,
+      "height": 50,
+      "text": "PTY Input (bytes)",
+      "vv": {
+        "nodeType": "input",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "utf8decoder",
+      "type": "text",
+      "x": 630,
+      "y": 225,
+      "width": 140,
+      "height": 50,
+      "text": "UTF8Decoder",
+      "vv": {
+        "nodeType": "decoder",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/UTF8Decoder.zig"
+        ]
+      }
+    },
+    {
+      "id": "parser",
+      "type": "text",
+      "x": 630,
+      "y": 385,
+      "width": 140,
+      "height": 50,
+      "text": "Parser",
+      "vv": {
+        "nodeType": "parser",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/Parser.zig"
+        ]
+      }
+    },
+    {
+      "id": "parse_table",
+      "type": "text",
+      "x": 740,
+      "y": 545,
+      "width": 120,
+      "height": 50,
+      "text": "Parse Table",
+      "vv": {
+        "nodeType": "data",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/parse_table.zig"
+        ]
+      }
+    },
+    {
+      "id": "stream",
+      "type": "text",
+      "x": 530,
+      "y": 545,
+      "width": 140,
+      "height": 50,
+      "text": "Stream Handler",
+      "vv": {
+        "nodeType": "handler",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/stream.zig"
+        ]
+      }
+    },
+    {
+      "id": "terminal",
+      "type": "text",
+      "x": 1130,
+      "y": 700,
+      "width": 140,
+      "height": 60,
+      "text": "Terminal",
+      "vv": {
+        "nodeType": "core",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/Terminal.zig"
+        ]
+      }
+    },
+    {
+      "id": "modes",
+      "type": "text",
+      "x": 1250,
+      "y": 865,
+      "width": 100,
+      "height": 50,
+      "text": "Modes",
+      "vv": {
+        "nodeType": "state",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/modes.zig"
+        ]
+      }
+    },
+    {
+      "id": "tabstops",
+      "type": "text",
+      "x": 1050,
+      "y": 865,
+      "width": 100,
+      "height": 50,
+      "text": "Tabstops",
+      "vv": {
+        "nodeType": "state",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/Tabstops.zig"
+        ]
+      }
+    },
+    {
+      "id": "color",
+      "type": "text",
+      "x": 850,
+      "y": 865,
+      "width": 100,
+      "height": 50,
+      "text": "Color Palette",
+      "vv": {
+        "nodeType": "state",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/color.zig"
+        ]
+      }
+    },
+    {
+      "id": "osc",
+      "type": "text",
+      "x": 950,
+      "y": 705,
+      "width": 100,
+      "height": 50,
+      "text": "OSC Handler",
+      "vv": {
+        "nodeType": "vt",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/osc.zig"
+        ]
+      }
+    },
+    {
+      "id": "csi",
+      "type": "text",
+      "x": 750,
+      "y": 705,
+      "width": 100,
+      "height": 50,
+      "text": "CSI Handler",
+      "vv": {
+        "nodeType": "vt",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/csi.zig"
+        ]
+      }
+    },
+    {
+      "id": "dcs",
+      "type": "text",
+      "x": 550,
+      "y": 705,
+      "width": 100,
+      "height": 50,
+      "text": "DCS Handler",
+      "vv": {
+        "nodeType": "vt",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/dcs.zig"
+        ]
+      }
+    },
+    {
+      "id": "apc",
+      "type": "text",
+      "x": 350,
+      "y": 705,
+      "width": 100,
+      "height": 50,
+      "text": "APC Handler",
+      "vv": {
+        "nodeType": "vt",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/apc.zig"
+        ]
+      }
+    },
+    {
+      "id": "sgr",
+      "type": "text",
+      "x": 150,
+      "y": 705,
+      "width": 100,
+      "height": 50,
+      "text": "SGR Attrs",
+      "vv": {
+        "nodeType": "vt",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/sgr.zig"
+        ]
+      }
+    },
+    {
+      "id": "screen",
+      "type": "text",
+      "x": 430,
+      "y": 860,
+      "width": 140,
+      "height": 60,
+      "text": "Screen",
+      "vv": {
+        "nodeType": "core",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/Screen.zig"
+        ]
+      }
+    },
+    {
+      "id": "pagelist",
+      "type": "text",
+      "x": 1030,
+      "y": 1025,
+      "width": 140,
+      "height": 50,
+      "text": "PageList",
+      "vv": {
+        "nodeType": "storage",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/PageList.zig"
+        ]
+      }
+    },
+    {
+      "id": "page",
+      "type": "text",
+      "x": 730,
+      "y": 1185,
+      "width": 140,
+      "height": 50,
+      "text": "Page",
+      "vv": {
+        "nodeType": "storage",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/page.zig"
+        ]
+      }
+    },
+    {
+      "id": "selection",
+      "type": "text",
+      "x": 840,
+      "y": 1025,
+      "width": 120,
+      "height": 50,
+      "text": "Selection",
+      "vv": {
+        "nodeType": "state",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/Selection.zig"
+        ]
+      }
+    },
+    {
+      "id": "charsets",
+      "type": "text",
+      "x": 640,
+      "y": 1025,
+      "width": 120,
+      "height": 50,
+      "text": "Charsets",
+      "vv": {
+        "nodeType": "state",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/charsets.zig"
+        ]
+      }
+    },
+    {
+      "id": "style",
+      "type": "text",
+      "x": 950,
+      "y": 1345,
+      "width": 100,
+      "height": 50,
+      "text": "Style",
+      "vv": {
+        "nodeType": "data",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/style.zig"
+        ]
+      }
+    },
+    {
+      "id": "hyperlink",
+      "type": "text",
+      "x": 750,
+      "y": 1345,
+      "width": 100,
+      "height": 50,
+      "text": "Hyperlink",
+      "vv": {
+        "nodeType": "data",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/hyperlink.zig"
+        ]
+      }
+    },
+    {
+      "id": "cells",
+      "type": "text",
+      "x": 550,
+      "y": 1345,
+      "width": 100,
+      "height": 50,
+      "text": "Cells/Rows",
+      "vv": {
+        "nodeType": "data",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/page.zig"
+        ]
+      }
+    },
+    {
+      "id": "grapheme",
+      "type": "text",
+      "x": 350,
+      "y": 1345,
+      "width": 100,
+      "height": 50,
+      "text": "GraphemeMap",
+      "vv": {
+        "nodeType": "data",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/page.zig"
+        ]
+      }
+    },
+    {
+      "id": "kitty",
+      "type": "text",
+      "x": 40,
+      "y": 865,
+      "width": 120,
+      "height": 50,
+      "text": "Kitty Protocol",
+      "vv": {
+        "nodeType": "protocol",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/kitty/graphics.zig"
+        ]
+      }
+    },
+    {
+      "id": "kitty_key",
+      "type": "text",
+      "x": 440,
+      "y": 1025,
+      "width": 120,
+      "height": 50,
+      "text": "Kitty Keyboard",
+      "vv": {
+        "nodeType": "protocol",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/kitty/key.zig"
+        ]
+      }
+    },
+    {
+      "id": "kitty_graphics",
+      "type": "text",
+      "x": 35,
+      "y": 1025,
+      "width": 130,
+      "height": 50,
+      "text": "Graphics Storage",
+      "vv": {
+        "nodeType": "storage",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/kitty/graphics_storage.zig"
+        ]
+      }
+    },
+    {
+      "id": "tmux",
+      "type": "text",
+      "x": 235,
+      "y": 865,
+      "width": 130,
+      "height": 50,
+      "text": "Tmux Control",
+      "vv": {
+        "nodeType": "protocol",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/tmux/control.zig"
+        ]
+      }
+    },
+    {
+      "id": "search",
+      "type": "text",
+      "x": 640,
+      "y": 865,
+      "width": 120,
+      "height": 50,
+      "text": "Search Thread",
+      "vv": {
+        "nodeType": "thread",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/search/Thread.zig"
+        ]
+      }
+    },
+    {
+      "id": "highlight",
+      "type": "text",
+      "x": 1240,
+      "y": 1025,
+      "width": 120,
+      "height": 50,
+      "text": "Highlight",
+      "vv": {
+        "nodeType": "state",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/highlight.zig"
+        ]
+      }
+    },
+    {
+      "id": "render",
+      "type": "text",
+      "x": 240,
+      "y": 1025,
+      "width": 120,
+      "height": 50,
+      "text": "RenderState",
+      "vv": {
+        "nodeType": "output",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/render.zig"
+        ]
+      }
+    },
+    {
+      "id": "formatter",
+      "type": "text",
+      "x": 540,
+      "y": 1185,
+      "width": 120,
+      "height": 50,
+      "text": "Formatter",
+      "vv": {
+        "nodeType": "output",
+        "shape": "rectangle",
+        "sources": [
+          "src/terminal/formatter.zig"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "input",
+      "toNode": "utf8decoder",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e2",
+      "fromNode": "utf8decoder",
+      "toNode": "parser",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e3",
+      "fromNode": "parser",
+      "toNode": "stream",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e4",
+      "fromNode": "parser",
+      "toNode": "parse_table",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e5",
+      "fromNode": "stream",
+      "toNode": "terminal",
+      "vv": {
+        "edgeType": "dataflow"
+      }
+    },
+    {
+      "id": "e6",
+      "fromNode": "stream",
+      "toNode": "osc",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e7",
+      "fromNode": "stream",
+      "toNode": "csi",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e8",
+      "fromNode": "stream",
+      "toNode": "dcs",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e9",
+      "fromNode": "stream",
+      "toNode": "apc",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e10",
+      "fromNode": "stream",
+      "toNode": "sgr",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e11",
+      "fromNode": "terminal",
+      "toNode": "modes",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e12",
+      "fromNode": "terminal",
+      "toNode": "tabstops",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e13",
+      "fromNode": "terminal",
+      "toNode": "color",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e14",
+      "fromNode": "terminal",
+      "toNode": "screen",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e15",
+      "fromNode": "screen",
+      "toNode": "pagelist",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e16",
+      "fromNode": "pagelist",
+      "toNode": "page",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e17",
+      "fromNode": "screen",
+      "toNode": "selection",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e18",
+      "fromNode": "screen",
+      "toNode": "charsets",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e19",
+      "fromNode": "page",
+      "toNode": "style",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e20",
+      "fromNode": "page",
+      "toNode": "cells",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e21",
+      "fromNode": "page",
+      "toNode": "grapheme",
+      "vv": {
+        "edgeType": "contains"
+      }
+    },
+    {
+      "id": "e22",
+      "fromNode": "page",
+      "toNode": "hyperlink",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e23",
+      "fromNode": "apc",
+      "toNode": "kitty",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e24",
+      "fromNode": "kitty",
+      "toNode": "kitty_graphics",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e25",
+      "fromNode": "screen",
+      "toNode": "kitty_key",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e26",
+      "fromNode": "dcs",
+      "toNode": "tmux",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e27",
+      "fromNode": "search",
+      "toNode": "pagelist",
+      "vv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "e28",
+      "fromNode": "search",
+      "toNode": "highlight",
+      "vv": {
+        "edgeType": "produces"
+      }
+    },
+    {
+      "id": "e29",
+      "fromNode": "screen",
+      "toNode": "render",
+      "vv": {
+        "edgeType": "produces"
+      }
+    },
+    {
+      "id": "e30",
+      "fromNode": "render",
+      "toNode": "formatter",
+      "vv": {
+        "edgeType": "uses"
+      }
+    }
+  ]
+}
