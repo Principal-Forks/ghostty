@@ -1,0 +1,334 @@
+version: "1.0.0"
+name: "Ghostty Component Library"
+
+nodeComponents:
+  core_app:
+    defaultLabel: "Core App"
+    description: "Main application orchestrator managing surfaces, configuration, and global state"
+    tags: ["core", "zig", "application"]
+    color: "#FF6B6B"
+    pv:
+      nodeType: "system"
+      file_path: "src/App.zig"
+      responsibilities: ["Surface lifecycle management", "Configuration management", "Global keybinding handling", "Mailbox message processing", "Font cache coordination"]
+
+  surface:
+    defaultLabel: "Surface"
+    description: "Terminal surface instance representing a single terminal window/tab"
+    tags: ["core", "zig", "ui"]
+    color: "#4ECDC4"
+    pv:
+      nodeType: "container"
+      file_path: "src/Surface.zig"
+      responsibilities: ["Terminal display management", "Surface-specific configuration", "Renderer coordination", "Input event handling"]
+
+  terminal_core:
+    defaultLabel: "Terminal Core"
+    description: "Core terminal emulation engine handling VT sequences and state"
+    tags: ["core", "zig", "terminal", "emulation"]
+    color: "#45B7D1"
+    pv:
+      nodeType: "engine"
+      file_path: "src/terminal/Terminal.zig"
+      responsibilities: ["VT sequence parsing", "Screen state management", "Cursor tracking", "Text rendering coordination"]
+
+  renderer_system:
+    defaultLabel: "Renderer System"
+    description: "Cross-platform rendering system with Metal and OpenGL backends"
+    tags: ["graphics", "zig", "cross-platform"]
+    color: "#96CEB4"
+    pv:
+      nodeType: "system"
+      file_path: "src/renderer/"
+      responsibilities: ["Multi-backend rendering (Metal/OpenGL)", "Shader management", "Font atlas coordination", "GPU resource management"]
+
+  metal_renderer:
+    defaultLabel: "Metal Renderer"
+    description: "macOS-specific Metal rendering backend"
+    tags: ["graphics", "metal", "zig", "macos"]
+    color: "#DDA0DD"
+    pv:
+      nodeType: "component"
+      file_path: "src/renderer/metal/"
+      responsibilities: ["Metal pipeline management", "macOS GPU rendering", "Texture management", "Metal shader compilation"]
+
+  opengl_renderer:
+    defaultLabel: "OpenGL Renderer"
+    description: "Cross-platform OpenGL rendering backend"
+    tags: ["graphics", "opengl", "zig", "linux"]
+    color: "#F0E68C"
+    pv:
+      nodeType: "component"
+      file_path: "src/renderer/opengl/"
+      responsibilities: ["OpenGL context management", "Cross-platform GPU rendering", "GLSL shader handling", "Buffer management"]
+
+  font_system:
+    defaultLabel: "Font System"
+    description: "Cross-platform font loading, shaping, and rendering system"
+    tags: ["fonts", "zig", "text"]
+    color: "#FFB6C1"
+    pv:
+      nodeType: "system"
+      file_path: "src/font/"
+      responsibilities: ["Font discovery and loading", "Text shaping (HarfBuzz/CoreText)", "Glyph atlas generation", "Font metrics calculation"]
+
+  input_system:
+    defaultLabel: "Input System"
+    description: "Cross-platform input handling and keybinding system"
+    tags: ["input", "zig", "cross-platform"]
+    color: "#87CEEB"
+    pv:
+      nodeType: "system"
+      file_path: "src/input/"
+      responsibilities: ["Keyboard input processing", "Mouse event handling", "Keybinding resolution", "IME integration"]
+
+  config_system:
+    defaultLabel: "Config System"
+    description: "Configuration parsing, validation, and conditional loading"
+    tags: ["config", "zig", "validation"]
+    color: "#DEB887"
+    pv:
+      nodeType: "system"
+      file_path: "src/config/"
+      responsibilities: ["Configuration file parsing", "Conditional config loading", "Schema validation", "Runtime config updates"]
+
+  termio_system:
+    defaultLabel: "TermIO System"
+    description: "PTY management and shell integration"
+    tags: ["io", "zig", "shell"]
+    color: "#98D8C8"
+    pv:
+      nodeType: "system"
+      file_path: "src/termio/"
+      responsibilities: ["PTY process management", "Shell integration", "IO thread coordination", "Process lifecycle"]
+
+  apprt_macos:
+    defaultLabel: "App Runtime (macOS)"
+    description: "macOS-specific application runtime layer"
+    tags: ["platform", "swift", "macos"]
+    color: "#FF9F80"
+    pv:
+      nodeType: "adapter"
+      file_path: "macos/"
+      responsibilities: ["Native macOS integration", "SwiftUI application wrapper", "macOS-specific features", "Platform event handling"]
+
+  apprt_gtk:
+    defaultLabel: "App Runtime (GTK)"
+    description: "Linux/FreeBSD GTK application runtime layer"
+    tags: ["platform", "gtk", "linux"]
+    color: "#A5D6A7"
+    pv:
+      nodeType: "adapter"
+      file_path: "src/apprt/gtk/"
+      responsibilities: ["GTK application wrapper", "Linux desktop integration", "Wayland/X11 support", "Native Linux features"]
+
+  libghostty_vt:
+    defaultLabel: "libghostty-vt"
+    description: "Embeddable terminal emulation library (C API)"
+    tags: ["library", "c", "wasm", "embedding"]
+    color: "#CE93D8"
+    pv:
+      nodeType: "library"
+      file_path: "src/lib_vt/"
+      responsibilities: ["C API terminal emulation", "WASM support", "Cross-language bindings", "Library encapsulation"]
+
+  crash_system:
+    defaultLabel: "Crash System"
+    description: "Crash reporting and diagnostics system"
+    tags: ["diagnostics", "zig", "reliability"]
+    color: "#FFCCBC"
+    pv:
+      nodeType: "component"
+      file_path: "src/crash/"
+      responsibilities: ["Crash detection", "Report generation", "Sentry integration", "Debug information collection"]
+
+  data_structures:
+    defaultLabel: "Data Structures"
+    description: "Custom data structures for high-performance operations"
+    tags: ["algorithms", "zig", "performance"]
+    color: "#C5E1A5"
+    pv:
+      nodeType: "library"
+      file_path: "src/datastruct/"
+      responsibilities: ["Blocking queues", "Cache structures", "Memory pools", "Performance utilities"]
+
+  unicode_system:
+    defaultLabel: "Unicode System"
+    description: "Unicode text processing and width calculations"
+    tags: ["unicode", "zig", "text"]
+    color: "#90CAF9"
+    pv:
+      nodeType: "library"
+      file_path: "src/unicode/"
+      responsibilities: ["Unicode width calculation", "Text segmentation", "Character properties", "Bidirectional text support"]
+
+edgeComponents:
+  core_manages_surface:
+    description: "Core app creates and manages terminal surfaces"
+    style: "solid"
+    directed: true
+    label: "manages"
+    pv:
+      source: "core_app"
+      target: "surface"
+      type: "data_flow"
+
+  surface_uses_terminal:
+    description: "Surface uses terminal core for emulation"
+    style: "dashed"
+    directed: true
+    label: "uses"
+    pv:
+      source: "surface"
+      target: "terminal_core"
+      type: "dependency"
+
+  surface_uses_renderer:
+    description: "Surface coordinates with renderer for display"
+    style: "solid"
+    directed: true
+    label: "coordinates"
+    pv:
+      source: "surface"
+      target: "renderer_system"
+      type: "data_flow"
+
+  terminal_uses_unicode:
+    description: "Terminal core uses Unicode for text processing"
+    style: "dashed"
+    directed: true
+    label: "uses"
+    pv:
+      source: "terminal_core"
+      target: "unicode_system"
+      type: "dependency"
+
+  terminal_uses_termio:
+    description: "Terminal processes IO through termio system"
+    style: "solid"
+    directed: true
+    label: "processes"
+    pv:
+      source: "terminal_core"
+      target: "termio_system"
+      type: "data_flow"
+
+  renderer_uses_font:
+    description: "Renderer uses font system for text rendering"
+    style: "dashed"
+    directed: true
+    label: "uses"
+    pv:
+      source: "renderer_system"
+      target: "font_system"
+      type: "dependency"
+
+  renderer_implements_metal:
+    description: "Renderer system implements Metal backend"
+    style: "solid"
+    directed: true
+    label: "implements"
+    pv:
+      source: "renderer_system"
+      target: "metal_renderer"
+      type: "inheritance"
+
+  renderer_implements_opengl:
+    description: "Renderer system implements OpenGL backend"
+    style: "solid"
+    directed: true
+    label: "implements"
+    pv:
+      source: "renderer_system"
+      target: "opengl_renderer"
+      type: "inheritance"
+
+  font_uses_unicode:
+    description: "Font system uses Unicode for text shaping"
+    style: "dashed"
+    directed: true
+    label: "uses"
+    pv:
+      source: "font_system"
+      target: "unicode_system"
+      type: "dependency"
+
+  apprt_implements_core_macos:
+    description: "macOS runtime implements core app interface"
+    style: "solid"
+    directed: true
+    label: "implements"
+    pv:
+      source: "apprt_macos"
+      target: "core_app"
+      type: "inheritance"
+
+  apprt_implements_core_gtk:
+    description: "GTK runtime implements core app interface"
+    style: "solid"
+    directed: true
+    label: "implements"
+    pv:
+      source: "apprt_gtk"
+      target: "core_app"
+      type: "inheritance"
+
+  lib_exposes_terminal:
+    description: "Library exposes terminal core via C API"
+    style: "solid"
+    directed: true
+    label: "exposes"
+    pv:
+      source: "libghostty_vt"
+      target: "terminal_core"
+      type: "api"
+
+  config_configures_core:
+    description: "Configuration system configures core app"
+    style: "dotted"
+    directed: true
+    label: "configures"
+    pv:
+      source: "config_system"
+      target: "core_app"
+      type: "configuration"
+
+  config_configures_surface:
+    description: "Configuration system configures surfaces"
+    style: "dotted"
+    directed: true
+    label: "configures"
+    pv:
+      source: "config_system"
+      target: "surface"
+      type: "configuration"
+
+  input_processes_events:
+    description: "Input system processes events for surfaces"
+    style: "solid"
+    directed: true
+    label: "processes events"
+    pv:
+      source: "input_system"
+      target: "surface"
+      type: "data_flow"
+
+  core_uses_data_structures:
+    description: "Data structures support core operations"
+    style: "dashed"
+    directed: true
+    label: "supports"
+    pv:
+      source: "data_structures"
+      target: "core_app"
+      type: "dependency"
+
+  core_uses_crash_system:
+    description: "Crash system monitors core app"
+    style: "dashed"
+    directed: true
+    label: "monitors"
+    pv:
+      source: "crash_system"
+      target: "core_app"
+      type: "dependency"

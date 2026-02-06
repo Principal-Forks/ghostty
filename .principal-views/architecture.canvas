@@ -1,0 +1,337 @@
+{
+  "pv": {
+    "name": "Ghostty Architecture",
+    "version": "1.0.0"
+  },
+  "nodes": [
+    {
+      "id": "core_app",
+      "type": "text",
+      "x": 400,
+      "y": 100,
+      "width": 180,
+      "height": 80,
+      "color": "#FF6B6B",
+      "pv": {
+        "nodeType": "system",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "surface",
+      "type": "text",
+      "x": 300,
+      "y": 250,
+      "width": 160,
+      "height": 70,
+      "color": "#4ECDC4",
+      "pv": {
+        "nodeType": "container",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "terminal_core",
+      "type": "text",
+      "x": 150,
+      "y": 400,
+      "width": 160,
+      "height": 70,
+      "color": "#45B7D1",
+      "pv": {
+        "nodeType": "engine",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "renderer_system",
+      "type": "text",
+      "x": 500,
+      "y": 400,
+      "width": 160,
+      "height": 70,
+      "color": "#96CEB4",
+      "pv": {
+        "nodeType": "system",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "metal_renderer",
+      "type": "text",
+      "x": 420,
+      "y": 550,
+      "width": 120,
+      "height": 60,
+      "color": "#DDA0DD",
+      "pv": {
+        "nodeType": "component",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "opengl_renderer",
+      "type": "text",
+      "x": 560,
+      "y": 550,
+      "width": 120,
+      "height": 60,
+      "color": "#F0E68C",
+      "pv": {
+        "nodeType": "component",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "font_system",
+      "type": "text",
+      "x": 750,
+      "y": 250,
+      "width": 140,
+      "height": 70,
+      "color": "#FFB6C1",
+      "pv": {
+        "nodeType": "system",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "input_system",
+      "type": "text",
+      "x": 750,
+      "y": 100,
+      "width": 140,
+      "height": 70,
+      "color": "#87CEEB",
+      "pv": {
+        "nodeType": "system",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "config_system",
+      "type": "text",
+      "x": 50,
+      "y": 250,
+      "width": 140,
+      "height": 70,
+      "color": "#DEB887",
+      "pv": {
+        "nodeType": "system",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "termio_system",
+      "type": "text",
+      "x": 150,
+      "y": 550,
+      "width": 140,
+      "height": 70,
+      "color": "#98D8C8",
+      "pv": {
+        "nodeType": "system",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "apprt_macos",
+      "type": "text",
+      "x": 200,
+      "y": 100,
+      "width": 140,
+      "height": 70,
+      "color": "#FF9F80",
+      "pv": {
+        "nodeType": "adapter",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "apprt_gtk",
+      "type": "text",
+      "x": 600,
+      "y": 100,
+      "width": 140,
+      "height": 70,
+      "color": "#A5D6A7",
+      "pv": {
+        "nodeType": "adapter",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "libghostty_vt",
+      "type": "text",
+      "x": 950,
+      "y": 400,
+      "width": 140,
+      "height": 70,
+      "color": "#CE93D8",
+      "pv": {
+        "nodeType": "library",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "unicode_system",
+      "type": "text",
+      "x": 350,
+      "y": 550,
+      "width": 140,
+      "height": 70,
+      "color": "#90CAF9",
+      "pv": {
+        "nodeType": "library",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "crash_system",
+      "type": "text",
+      "x": 950,
+      "y": 100,
+      "width": 140,
+      "height": 70,
+      "color": "#FFCCBC",
+      "pv": {
+        "nodeType": "component",
+        "shape": "rounded"
+      }
+    },
+    {
+      "id": "data_structures",
+      "type": "text",
+      "x": 50,
+      "y": 100,
+      "width": 140,
+      "height": 70,
+      "color": "#C5E1A5",
+      "pv": {
+        "nodeType": "library",
+        "shape": "rounded"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "core_manages_surface",
+      "source": "core_app",
+      "target": "surface",
+      "directed": true,
+      "style": "solid"
+    },
+    {
+      "id": "surface_uses_terminal",
+      "source": "surface",
+      "target": "terminal_core",
+      "directed": true,
+      "style": "dashed"
+    },
+    {
+      "id": "surface_uses_renderer",
+      "source": "surface",
+      "target": "renderer_system",
+      "directed": true,
+      "style": "solid"
+    },
+    {
+      "id": "terminal_uses_unicode",
+      "source": "terminal_core",
+      "target": "unicode_system",
+      "directed": true,
+      "style": "dashed"
+    },
+    {
+      "id": "terminal_uses_termio",
+      "source": "terminal_core",
+      "target": "termio_system",
+      "directed": true,
+      "style": "solid"
+    },
+    {
+      "id": "renderer_uses_font",
+      "source": "renderer_system",
+      "target": "font_system",
+      "directed": true,
+      "style": "dashed"
+    },
+    {
+      "id": "renderer_implements_metal",
+      "source": "renderer_system",
+      "target": "metal_renderer",
+      "directed": true,
+      "style": "solid"
+    },
+    {
+      "id": "renderer_implements_opengl",
+      "source": "renderer_system",
+      "target": "opengl_renderer",
+      "directed": true,
+      "style": "solid"
+    },
+    {
+      "id": "font_uses_unicode",
+      "source": "font_system",
+      "target": "unicode_system",
+      "directed": true,
+      "style": "dashed"
+    },
+    {
+      "id": "apprt_implements_core_macos",
+      "source": "apprt_macos",
+      "target": "core_app",
+      "directed": true,
+      "style": "solid"
+    },
+    {
+      "id": "apprt_implements_core_gtk",
+      "source": "apprt_gtk",
+      "target": "core_app",
+      "directed": true,
+      "style": "solid"
+    },
+    {
+      "id": "lib_exposes_terminal",
+      "source": "libghostty_vt",
+      "target": "terminal_core",
+      "directed": true,
+      "style": "solid"
+    },
+    {
+      "id": "config_configures_core",
+      "source": "config_system",
+      "target": "core_app",
+      "directed": true,
+      "style": "dotted"
+    },
+    {
+      "id": "config_configures_surface",
+      "source": "config_system",
+      "target": "surface",
+      "directed": true,
+      "style": "dotted"
+    },
+    {
+      "id": "input_processes_events",
+      "source": "input_system",
+      "target": "surface",
+      "directed": true,
+      "style": "solid"
+    },
+    {
+      "id": "core_uses_data_structures",
+      "source": "data_structures",
+      "target": "core_app",
+      "directed": true,
+      "style": "dashed"
+    },
+    {
+      "id": "core_uses_crash_system",
+      "source": "crash_system",
+      "target": "core_app",
+      "directed": true,
+      "style": "dashed"
+    }
+  ]
+}
