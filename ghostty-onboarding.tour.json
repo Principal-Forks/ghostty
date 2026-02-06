@@ -1,0 +1,241 @@
+{
+  "id": "ghostty-onboarding",
+  "title": "Ghostty Terminal Emulator Onboarding",
+  "description": "Learn the structure and key components of the Ghostty terminal emulator codebase",
+  "version": "1.0.0",
+  "audience": "New Developers",
+  "prerequisites": [
+    "Basic understanding of Zig programming language",
+    "Familiarity with terminal emulator concepts"
+  ],
+  "steps": [
+    {
+      "id": "step-1-overview",
+      "title": "Ghostty Project Overview",
+      "description": "Welcome to Ghostty! This is a modern, fast terminal emulator written in Zig. This tour will guide you through the main areas of the codebase.",
+      "estimatedTime": 60,
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-2-core-architecture",
+      "title": "Core Architecture",
+      "description": "The main application entry points and core components that power Ghostty.",
+      "estimatedTime": 120,
+      "focusDirectory": "src",
+      "highlightLayers": [
+        {
+          "id": "core-layer",
+          "name": "Core Application Files",
+          "color": "#3b82f6",
+          "items": [
+            {
+              "path": "src/main.zig",
+              "type": "file"
+            },
+            {
+              "path": "src/main_ghostty.zig",
+              "type": "file"
+            },
+            {
+              "path": "src/App.zig",
+              "type": "file"
+            },
+            {
+              "path": "src/Command.zig",
+              "type": "file"
+            }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-3-terminal-core",
+      "title": "Terminal Engine Core",
+      "description": "The heart of Ghostty - terminal emulation, rendering, and I/O handling.",
+      "estimatedTime": 150,
+      "focusDirectory": "src",
+      "highlightLayers": [
+        {
+          "id": "terminal-layer",
+          "name": "Terminal Engine",
+          "color": "#ef4444",
+          "items": [
+            {
+              "path": "src/terminal",
+              "type": "directory"
+            },
+            {
+              "path": "src/termio",
+              "type": "directory"
+            },
+            {
+              "path": "src/renderer",
+              "type": "directory"
+            },
+            {
+              "path": "src/Surface.zig",
+              "type": "file"
+            }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-4-platform-integration",
+      "title": "Platform Integration",
+      "description": "Platform-specific code for macOS, Linux, and other supported systems.",
+      "estimatedTime": 90,
+      "highlightLayers": [
+        {
+          "id": "platform-layer",
+          "name": "Platform Code",
+          "color": "#10b981",
+          "items": [
+            {
+              "path": "src/apprt",
+              "type": "directory"
+            },
+            {
+              "path": "src/os",
+              "type": "directory"
+            },
+            {
+              "path": "macos",
+              "type": "directory"
+            }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-5-build-system",
+      "title": "Build System & Configuration",
+      "description": "Zig build system and project configuration files.",
+      "estimatedTime": 60,
+      "highlightLayers": [
+        {
+          "id": "build-layer",
+          "name": "Build Configuration",
+          "color": "#f59e0b",
+          "items": [
+            {
+              "path": "build.zig",
+              "type": "file"
+            },
+            {
+              "path": "build.zig.zon",
+              "type": "file"
+            },
+            {
+              "path": "src/build",
+              "type": "directory"
+            }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-6-input-handling",
+      "title": "Input & Event Handling",
+      "description": "Keyboard, mouse, and other input processing systems.",
+      "estimatedTime": 90,
+      "focusDirectory": "src/input",
+      "highlightLayers": [
+        {
+          "id": "input-layer",
+          "name": "Input System",
+          "color": "#8b5cf6",
+          "items": [
+            {
+              "path": "src/input",
+              "type": "directory"
+            },
+            {
+              "path": "src/input/key_encode.zig",
+              "type": "file"
+            },
+            {
+              "path": "src/input/mouse.zig",
+              "type": "file"
+            },
+            {
+              "path": "src/input/command.zig",
+              "type": "file"
+            }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-7-getting-started",
+      "title": "Getting Started",
+      "description": "Ready to contribute? Here are the key files and commands to get you started with Ghostty development.",
+      "estimatedTime": 60,
+      "highlightLayers": [
+        {
+          "id": "dev-layer",
+          "name": "Development Resources",
+          "color": "#06b6d4",
+          "items": [
+            {
+              "path": "CONTRIBUTING.md",
+              "type": "file"
+            },
+            {
+              "path": "HACKING.md",
+              "type": "file"
+            },
+            {
+              "path": "AGENTS.md",
+              "type": "file"
+            },
+            {
+              "path": "test",
+              "type": "directory"
+            }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "click-file",
+          "description": "Read CONTRIBUTING.md to learn how to contribute",
+          "target": "CONTRIBUTING.md"
+        },
+        {
+          "type": "click-file",
+          "description": "Check HACKING.md for development tips",
+          "target": "HACKING.md"
+        }
+      ],
+      "colorMode": "fileTypes"
+    }
+  ],
+  "metadata": {
+    "author": "Ghostty Project",
+    "createdAt": "2026-02-06T00:54:00.000Z",
+    "tags": [
+      "onboarding",
+      "terminal-emulator",
+      "zig",
+      "ghostty"
+    ]
+  }
+}
